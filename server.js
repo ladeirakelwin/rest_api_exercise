@@ -5,9 +5,12 @@ const app = express()
 const port = 3000
 const router = require('./src/router')
 const bodyParser = require('body-parser')
+const cors = require('cors')
 
 //Insira aqui o código da tarefa proposta!
 //Apesar de não ser a melhor forma de manter um projeto, utilize apenas esse arquivo. Estamos testando!
+app.use(bodyParser.json())
+app.use(cors())
 
 
 
@@ -18,5 +21,5 @@ process.on('SIGINT', ()=> {
     })
 })
 
-router(app, port, db, bodyParser)
+router(app, port, db)
 
